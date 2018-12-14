@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -47,3 +48,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 # react-redux1
 1st test example
 >>>>>>> 889159f6c6bf29ace705f521fde697f44e2aa869
+=======
+# react-redux2
+2nd test example
+>>>>>>> 0cde45f36deed3a28c7270a0059240c3a0a64595
