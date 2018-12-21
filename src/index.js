@@ -4,9 +4,10 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import Results from './components/results';
 import Details from './components/details';
+import store from './redux/store';
 
 const Root = (
-   
+    <Provider store={store}>
         <BrowserRouter>
             <Switch>
                 <Route path="/results" component={Results} />
@@ -14,6 +15,7 @@ const Root = (
                 <Redirect from="/" to="/results" />
             </Switch>
         </BrowserRouter>
+    </Provider>    
   
 );
 
