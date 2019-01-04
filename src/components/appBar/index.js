@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Page from './page';
 import {connect} from 'react-redux';
 import findSuggestions from '../../redux/actions/findSuggestions';
+import findResults from '../../redux/actions/findResults';
+import {withRouter} from 'react-router-dom';
 
 class IAppBar extends Component {
     
@@ -24,7 +26,10 @@ class IAppBar extends Component {
         this.props.findSuggestions(text);
     }
     onChangeSelection(text){
+        this.setState({ text });
 
+        this.props.findResults(text);
+        this.props.history.push('/results');
     }
 
     render(){
@@ -54,6 +59,7 @@ const mapStateToProps = (state) => {
 //LO MISMO DE ABAJO PERO MÁS SENCILLO, version 2
 const mapDispatchToProps = {
     findSuggestions,
+    findResults,
 
 };
 
@@ -66,7 +72,17 @@ const mapDispatchToProps = (dispatch) => {
  };
 */
 
-export default connect(mapStateToProps, mapDispatchToProps)(IAppBar);
+// un wrapper con withrouter para poder redirigir despues de details de nuevo a results
+// si se hace una nueva busqueda mejorado lo de abajo.
+export default withRouter(
+    connect(mapStateToProps, mapDispatchToProps)(IAppBar)
+);
+
+
+// antes de hacer el wrapper con withRouter para poder redirigir a results como arriba
+//export default connect(mapStateToProps, mapDispatchToProps)(IAppBar);
+
+
 
 // export default connect(mapStateToProps)(IAppBar); ANTES DE AGREGAR EL mapDispatchToProps)
 

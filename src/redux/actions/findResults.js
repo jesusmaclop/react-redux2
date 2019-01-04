@@ -1,6 +1,6 @@
 export const type= 'findResults';
 
-const findCurrentItem = text =>{
+const findResults = text =>{
   return{
       type,
       payload: text,
